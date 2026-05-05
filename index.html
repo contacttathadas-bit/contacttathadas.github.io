@@ -454,20 +454,20 @@
     </header>
 
     <!-- ── STATS BAR ── -->
-    <div class="stats-bar anim fade-up">
-        <div class="stat">
+    <div class="stats-bar">
+        <div class="stat anim fade-up" style="transition-delay:0s;">
             <div class="stat-number">5+</div>
             <div class="stat-label">Years Experience</div>
         </div>
-        <div class="stat">
+        <div class="stat anim fade-up" style="transition-delay:0.1s;">
             <div class="stat-number">40+</div>
             <div class="stat-label">Brands Served</div>
         </div>
-        <div class="stat">
+        <div class="stat anim fade-up" style="transition-delay:0.2s;">
             <div class="stat-number">120+</div>
             <div class="stat-label">Projects Delivered</div>
         </div>
-        <div class="stat">
+        <div class="stat anim fade-up" style="transition-delay:0.3s;">
             <div class="stat-number">100%</div>
             <div class="stat-label">Client Satisfaction</div>
         </div>
@@ -879,19 +879,31 @@
             this.reset();
         });
 
-        // ── Scroll Animations ──
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        // ── Scroll Animations (works on both desktop & mobile) ──
+        function revealElement(el) {
+            el.classList.add('visible');
+            el.querySelectorAll('.skill-fill').forEach(bar => bar.classList.add('animate'));
+        }
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Animate skill bars
-                    entry.target.querySelectorAll('.skill-fill').forEach(bar => bar.classList.add('animate'));
+                    revealElement(entry.target);
                     obs.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.01 });
+
         document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+        // Immediately reveal elements already visible in viewport on page load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.anim').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 20) {
+                    revealElement(el);
+                }
+            });
+        });
     </script>
 </body>
 </html>
