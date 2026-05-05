@@ -65,95 +65,13 @@ nav {
 }
 .nav-logo {
   font-family: 'Syne', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--text);
   text-decoration: none;
-  letter-spacing: 0.08em;
-}
-.nav-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.4rem;
-}
-.nav-behance {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--accent);
-  color: var(--bg) !important;
-  font-family: 'Syne', sans-serif;
-  font-size: 0.65rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  padding: 0.3rem 0.8rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 0 12px rgba(232,197,71,0.35);
-}
-.nav-behance:hover {
-  background: #f0d060;
-  transform: translateY(-1px);
-  box-shadow: 0 0 20px rgba(232,197,71,0.55);
-}
-.nav-behance svg {
-  width: 10px; height: 10px;
-  fill: var(--bg);
-  flex-shrink: 0;
+  letter-spacing: 0.1em;
 }
 .nav-logo span { color: var(--accent); }
-
-/* WHATSAPP FLOAT */
-.whatsapp-float {
-  position: fixed;
-  right: 1.5rem;
-  bottom: 2rem;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: #25D366;
-  color: #fff;
-  border-radius: 3rem;
-  padding: 0.75rem 1.1rem;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
-  overflow: hidden;
-  max-width: 54px;
-}
-.whatsapp-float:hover {
-  transform: translateY(-3px);
-  max-width: 200px;
-  box-shadow: 0 8px 30px rgba(37,211,102,0.55);
-}
-.whatsapp-float svg {
-  width: 22px; height: 22px;
-  fill: #fff;
-  flex-shrink: 0;
-}
-.whatsapp-float span {
-  white-space: nowrap;
-  overflow: hidden;
-  opacity: 0;
-  width: 0;
-  transition: opacity 0.25s 0.05s, width 0.3s;
-}
-.whatsapp-float:hover span {
-  opacity: 1;
-  width: auto;
-}
-@keyframes waPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
-}
-.whatsapp-float { animation: waPulse 2.5s ease infinite; }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 .nav-links a {
   font-size: 0.75rem;
@@ -174,6 +92,179 @@ nav {
   transition: transform 0.2s, background 0.2s !important;
 }
 .nav-cta:hover { transform: translateY(-2px); background: #f0d060 !important; }
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(8,8,8,0.97);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+}
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--accent); }
+.mobile-menu .mobile-cta {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem !important;
+  background: var(--accent);
+  color: var(--bg) !important;
+  padding: 0.9rem 2.5rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.mobile-menu-socials {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.mobile-menu-socials a {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted) !important;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* HERO PORTFOLIO BUTTON */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+  animation: slideUp 0.8s ease 0.55s both;
+  flex-wrap: wrap;
+}
+.hero-portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  padding: 0.85rem 1rem 0.85rem 1.4rem;
+  border-radius: 3rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 0 30px rgba(232,197,71,0.4), 0 4px 15px rgba(232,197,71,0.25);
+}
+.hero-portfolio-btn:hover {
+  background: #f0d060;
+  transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(232,197,71,0.6), 0 8px 25px rgba(232,197,71,0.4);
+}
+.hero-portfolio-btn svg { flex-shrink: 0; }
+.hero-portfolio-btn-arrow {
+  width: 28px; height: 28px;
+  background: var(--bg);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.hero-portfolio-btn:hover .hero-portfolio-btn-arrow { transform: rotate(45deg); }
+.hero-portfolio-tagline {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 2rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: #fff;
+  border-radius: 3rem;
+  padding: 0.75rem 1.1rem;
+  text-decoration: none;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.2s, max-width 0.3s, box-shadow 0.2s;
+  overflow: hidden;
+  max-width: 54px;
+  animation: waPulse 2.5s ease infinite;
+}
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  max-width: 220px;
+  box-shadow: 0 8px 30px rgba(37,211,102,0.55);
+}
+.whatsapp-float svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+.whatsapp-float span {
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  width: 0;
+  transition: opacity 0.25s 0.05s, width 0.3s;
+}
+.whatsapp-float:hover span { opacity: 1; width: auto; }
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
+}
 
 /* HERO */
 .hero {
@@ -331,63 +422,7 @@ nav {
   margin-top: 0.25rem;
 }
 
-.hero-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  position: relative;
-  z-index: 2;
-  animation: slideUp 0.8s ease 0.55s both;
-}
-.hero-portfolio-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  background: var(--accent);
-  color: var(--bg);
-  text-decoration: none;
-  padding: 0.85rem 1rem 0.85rem 1.4rem;
-  border-radius: 3rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-  box-shadow: 0 0 30px rgba(232,197,71,0.4), 0 4px 15px rgba(232,197,71,0.3);
-}
-.hero-portfolio-btn:hover {
-  background: #f0d060;
-  transform: translateY(-3px);
-  box-shadow: 0 0 50px rgba(232,197,71,0.6), 0 8px 25px rgba(232,197,71,0.4);
-}
-.hero-portfolio-btn-inner {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.hero-portfolio-btn-arrow {
-  width: 30px; height: 30px;
-  background: var(--bg);
-  color: var(--accent);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
-.hero-portfolio-btn:hover .hero-portfolio-btn-arrow {
-  transform: rotate(45deg);
-}
-.hero-portfolio-tagline {
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-}
-
-
+.hero-scroll {
   position: absolute;
   bottom: 2.5rem; left: 50%;
   transform: translateX(-50%);
@@ -823,15 +858,19 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
   .hero { padding: 0 1.5rem 4rem; }
   .hero-gallery { width: 100%; opacity: 0.25; }
   .hero-number { font-size: 10rem; right: 1rem; }
   .hero-meta { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero-cta-row { flex-wrap: wrap; gap: 0.75rem; }
+  .hero-stats { flex-wrap: wrap; gap: 1rem; }
   .about, .contact { padding: 5rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
-  .about-image-actual { width: 100%; } /* Restores full width on mobile for better spacing */
+  .about-image-actual { width: 100%; }
   .services { padding: 5rem 1.5rem; }
   .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
-  .services-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
   .work { padding: 5rem 1.5rem; }
   .work-grid { grid-template-columns: 1fr; }
   .work-card:first-child { grid-row: span 1; }
@@ -841,6 +880,11 @@ footer {
   body { cursor: auto; }
   .form-row { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; }
+  .mobile-menu a { font-size: 2.2rem; }
 }
 </style>
 </head>
@@ -857,7 +901,23 @@ footer {
     <li><a href="#work">Work</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#work" class="mobile-link">Work</a>
+  <a href="#contact" class="mobile-cta mobile-link">Hire Me</a>
+  <div class="mobile-menu-socials">
+    <a href="https://www.behance.net/tathagatadas2003" target="_blank" rel="noopener">Behance</a>
+    <a href="mailto:contact.tatha.das@gmail.com">Email</a>
+    <a href="https://wa.me/917044768130" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -902,10 +962,8 @@ footer {
 
   <div class="hero-cta-row">
     <a href="https://www.behance.net/tathagatadas2003" target="_blank" rel="noopener" class="hero-portfolio-btn">
-      <span class="hero-portfolio-btn-inner">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.2.561 1.888 1.385 2.284.246.13.527.203.833.203 1.033 0 1.7-.495 1.954-1.458H23.726zm-5.816-4.899c-.179-.829-.676-1.345-1.52-1.345-.877 0-1.435.447-1.637 1.345h3.157zM8.947 7.2H3v9.8h6.004c1.57 0 4.126-.49 4.126-3.087 0-1.522-.919-2.375-2.126-2.712.815-.424 1.42-1.17 1.42-2.3C12.424 7.4 10.604 7.2 8.947 7.2zm-.87 3.756H5.426V9h2.651c.724 0 1.197.302 1.197 1 0 .608-.508.956-1.197.956zm.235 3.803H5.426v-2.2h2.886c.883 0 1.406.4 1.406 1.1 0 .8-.596 1.1-1.406 1.1z"/></svg>
-        Portfolio
-      </span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.2.561 1.888 1.385 2.284.246.13.527.203.833.203 1.033 0 1.7-.495 1.954-1.458H23.726zm-5.816-4.899c-.179-.829-.676-1.345-1.52-1.345-.877 0-1.435.447-1.637 1.345h3.157zM8.947 7.2H3v9.8h6.004c1.57 0 4.126-.49 4.126-3.087 0-1.522-.919-2.375-2.126-2.712.815-.424 1.42-1.17 1.42-2.3C12.424 7.4 10.604 7.2 8.947 7.2zm-.87 3.756H5.426V9h2.651c.724 0 1.197.302 1.197 1 0 .608-.508.956-1.197.956zm.235 3.803H5.426v-2.2h2.886c.883 0 1.406.4 1.406 1.1 0 .8-.596 1.1-1.406 1.1z"/></svg>
+      Portfolio
       <span class="hero-portfolio-btn-arrow">↗</span>
     </a>
     <span class="hero-portfolio-tagline">View my work on Behance</span>
@@ -1110,24 +1168,25 @@ footer {
   </div>
 
   <div class="reveal">
-    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojrwqov" method="POST">
+      <input type="hidden" name="_subject" value="New project enquiry from portfolio site">
       <div class="form-row">
         <div class="form-group">
           <label for="fname">First name</label>
-          <input type="text" id="fname" placeholder="Rahul" required>
+          <input type="text" id="fname" name="first_name" placeholder="Rahul" required>
         </div>
         <div class="form-group">
           <label for="lname">Last name</label>
-          <input type="text" id="lname" placeholder="Sharma" required>
+          <input type="text" id="lname" name="last_name" placeholder="Sharma" required>
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" id="email" placeholder="rahul@yourcompany.com" required>
+        <input type="email" id="email" name="email" placeholder="rahul@yourcompany.com" required>
       </div>
       <div class="form-group">
         <label for="service">Service required</label>
-        <select id="service" required>
+        <select id="service" name="service" required>
           <option value="" disabled selected>Select a service...</option>
           <option>Brand Identity Design</option>
           <option>Print & Packaging</option>
@@ -1140,11 +1199,14 @@ footer {
       </div>
       <div class="form-group">
         <label for="message">Tell me about your project</label>
-        <textarea id="message" placeholder="Describe your project, goals, timeline, and anything else that will help me understand what you need..." required></textarea>
+        <textarea id="message" name="message" placeholder="Describe your project, goals, timeline, and anything else that will help me understand what you need..." required></textarea>
       </div>
-      <button type="submit" class="form-submit">Send message →</button>
+      <button type="submit" class="form-submit" id="submitBtn">Send message →</button>
       <div class="form-success" id="formSuccess">
         ✓ Thanks! Your message has been sent. I'll get back to you within 24–48 hours.
+      </div>
+      <div class="form-error" id="formError" style="display:none; color:#e87070; font-size:0.85rem; margin-top:0.75rem;">
+        ✗ Something went wrong. Please email me directly at contact.tatha.das@gmail.com
       </div>
     </form>
   </div>
@@ -1161,12 +1223,29 @@ footer {
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/917044768130" target="_blank" rel="noopener" class="whatsapp-float" title="Chat on WhatsApp">
+<a href="https://wa.me/917044768130" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   <span>Chat on WhatsApp</span>
 </a>
 
 <script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
 // Custom cursor
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');
@@ -1233,15 +1312,36 @@ const counterObserver = new IntersectionObserver(entries => {
 const heroMeta = document.querySelector('.hero-meta');
 if (heroMeta) counterObserver.observe(heroMeta);
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }, 1200);
+// Contact form — Formspree
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const success = document.getElementById('formSuccess');
+    const error = document.getElementById('formError');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    error.style.display = 'none';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        btn.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
+      error.style.display = 'block';
+    }
+  });
 }
 </script>
 </body>
