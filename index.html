@@ -40,7 +40,7 @@ body {
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none; z-index: 9999;
-  transition: transform 0.15s ease;
+  /* Removed transition to make the dot completely instant */
   mix-blend-mode: difference;
 }
 .cursor-follower {
@@ -49,7 +49,8 @@ body {
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none; z-index: 9998;
-  transition: transform 0.4s ease, width 0.3s, height 0.3s;
+  /* CHANGED: Removed 'transform' from CSS transition to eliminate the lag/stutter */
+  transition: width 0.2s ease, height 0.2s ease;
   mix-blend-mode: difference;
 }
 
@@ -200,7 +201,7 @@ nav {
   color: transparent;
   -webkit-text-stroke: 1px var(--accent);
   font-style: italic;
-  text-shadow: 0 0 20px rgba(8,8,8,0.8); /* Ensures readability over gallery */
+  text-shadow: 0 0 20px rgba(8,8,8,0.8);
 }
 
 .hero-meta {
@@ -212,13 +213,21 @@ nav {
 .hero-desc {
   font-size: 1rem;
   color: var(--text);
-  background: rgba(8,8,8,0.6); /* Backdrop for better readability */
+  background: rgba(8,8,8,0.6);
   padding: 10px; border-radius: 8px;
   backdrop-filter: blur(5px);
   max-width: 380px;
   line-height: 1.75;
   font-weight: 400;
 }
+
+/* CHANGED: Scaled down the hero image wrapper slightly */
+.subject-wrapper {
+  width: 380px; /* Reduced from 450px */
+  height: 550px; /* Reduced from 650px */
+  position: relative; z-index: 2;
+}
+
 .hero-stats {
   display: flex; gap: 2.5rem;
   background: rgba(8,8,8,0.6);
@@ -301,20 +310,19 @@ nav {
   position: relative;
 }
 
-/* NEW IMAGE STYLING */
+/* CHANGED: Removed background and border to remove grey box, scaled down width */
 .about-image-actual {
-  width: 100%;
+  width: 85%; /* Reduced from 100% to scale it down */
+  margin: 0 auto; /* Keeps it centered */
   aspect-ratio: 3/4;
   object-fit: cover;
-  background: var(--surface2);
-  border: 1px solid var(--border);
   border-radius: 4px;
   display: block;
 }
 
 .about-accent-box {
   position: absolute;
-  bottom: -1.5rem; right: -1.5rem;
+  bottom: -1.5rem; right: 0rem; /* Adjusted right position slightly to match the 85% width */
   background: var(--accent);
   color: var(--bg);
   padding: 1.25rem 1.5rem;
@@ -678,10 +686,11 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }
   .hero { padding: 0 1.5rem 4rem; }
-  .hero-gallery { width: 100%; opacity: 0.25; } /* Reduces opacity on mobile to protect readability */
+  .hero-gallery { width: 100%; opacity: 0.25; }
   .hero-number { font-size: 10rem; right: 1rem; }
   .hero-meta { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .about, .contact { padding: 5rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+  .about-image-actual { width: 100%; } /* Restores full width on mobile for better spacing */
   .services { padding: 5rem 1.5rem; }
   .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
   .services-grid { grid-template-columns: 1fr; }
@@ -804,7 +813,6 @@ footer {
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-image-wrap reveal">
-    <!-- UPDATED: Actual Image Tag ready for GitHub Pages -->
     <img src="my-photo.png" alt="Tathagata Das" class="about-image-actual">
     
     <div class="about-accent-box">
@@ -1015,8 +1023,9 @@ document.addEventListener('mousemove', e => {
 });
 
 function animateFollower() {
-  followerX += (mouseX - followerX - 18) * 0.12;
-  followerY += (mouseY - followerY - 18) * 0.12;
+  // CHANGED: Increased the multiplier from 0.12 to 0.20 to make the follower ring snap instantly to the mouse
+  followerX += (mouseX - followerX - 18) * 0.20;
+  followerY += (mouseY - followerY - 18) * 0.20;
   follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
   requestAnimationFrame(animateFollower);
 }
