@@ -3,37 +3,768 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tathagata Das — Graphic Designer</title>
+<title>Tathagata Das — Graphic Designer & Visual Identity Expert</title>
+<meta name="description" content="Tathagata Das is a graphic designer with 5+ years of experience crafting bold brand identities, visual systems, and stunning design for digital marketing agencies and global clients.">
+<meta name="keywords" content="graphic designer, brand identity, visual design, logo design, Tathagata Das, India, digital marketing design">
+<meta property="og:title" content="Tathagata Das — Graphic Designer">
+<meta property="og:description" content="5+ years crafting bold identities and visual stories for brands that want to be remembered.">
+
 <link rel="icon" type="image/png" href="favicon.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-/* CSS Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --bg: #080808; --text: #F0EDE6; --accent: #E8C547; --border: rgba(240,237,230,0.08); }
-body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; overflow-x: hidden; cursor: none; }
 
-/* Custom Cursor */
-.cursor { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-.cursor-follower { width: 36px; height: 36px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transition: width 0.1s, height 0.1s; mix-blend-mode: difference; }
+:root {
+  --bg: #080808;
+  --surface: #111111;
+  --surface2: #181818;
+  --text: #F0EDE6;
+  --muted: #888580;
+  --accent: #E8C547;
+  --accent2: #C84B2F;
+  --border: rgba(240,237,230,0.08);
+}
 
-/* Navigation */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3.5rem; background: rgba(8,8,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--text); text-decoration: none; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  mix-blend-mode: difference;
+}
+.cursor-follower {
+  width: 36px; height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transition: width 0.2s ease, height 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 3.5rem;
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a { font-size: 0.75rem; text-transform: uppercase; color: #888580; text-decoration: none; }
 
-/* Hero Section */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 3.5rem; }
-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 9vw, 9rem); font-weight: 700; line-height: 0.95; }
-.name-last { color: transparent; -webkit-text-stroke: 1px var(--accent); font-style: italic; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--bg) !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2rem;
+  font-weight: 700 !important;
+  transition: transform 0.2s, background 0.2s !important;
+}
+.nav-cta:hover { transform: translateY(-2px); background: #f0d060 !important; }
 
-/* Placeholder Styling */
-.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 4rem 3.5rem; }
-.work-card { background: #111; padding: 2rem; border: 1px solid var(--border); text-align: center; color: var(--text); }
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 3.5rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
 
-/* Responsive adjustments */
-@media (max-width: 900px) { .cursor, .cursor-follower { display: none; } body { cursor: auto; } }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, #1a1400 0%, #080808 60%);
+}
+
+.hero-grid-lines {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(232,197,71,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,197,71,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: gridShift 20s linear infinite;
+}
+@keyframes gridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+
+/* HERO SCROLLING GALLERY */
+.hero-gallery {
+  position: absolute;
+  top: -10%; right: 2%;
+  width: 42%; height: 120%;
+  display: flex; gap: 1rem;
+  z-index: 1;
+  opacity: 0.65;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+.hero-gallery-col {
+  display: flex; flex-direction: column; gap: 1rem;
+  width: 50%;
+  animation: scrollVert 25s linear infinite;
+}
+.hero-gallery-col.reverse {
+  animation: scrollVertRev 30s linear infinite;
+}
+.hero-gallery-col img {
+  width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 3/4;
+}
+@keyframes scrollVert {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes scrollVertRev {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.hero-number {
+  position: absolute;
+  right: 3.5rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14rem, 22vw, 22rem);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(232,197,71,0.08);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  animation: fadeIn 1.5s ease forwards;
+  user-select: none;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative; z-index: 2;
+  animation: slideUp 0.8s ease 0.2s both;
+}
+.hero-eyebrow-line {
+  width: 40px; height: 1px;
+  background: var(--accent);
+}
+.hero-eyebrow-text {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  position: relative; z-index: 2;
+  animation: slideUp 0.8s ease 0.4s both;
+}
+.hero h1 .name-first { display: block; color: var(--text); }
+.hero h1 .name-last {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent);
+  font-style: italic;
+  text-shadow: 0 0 20px rgba(8,8,8,0.8);
+}
+
+.hero-meta {
+  display: flex; align-items: center; gap: 3rem;
+  margin-top: 2.5rem;
+  position: relative; z-index: 2;
+  animation: slideUp 0.8s ease 0.6s both;
+}
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text);
+  background: rgba(8,8,8,0.6);
+  padding: 10px; border-radius: 8px;
+  backdrop-filter: blur(5px);
+  max-width: 380px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+.subject-wrapper {
+  width: 380px;
+  height: 550px;
+  position: relative; z-index: 2;
+}
+
+.hero-stats {
+  display: flex; gap: 2.5rem;
+  background: rgba(8,8,8,0.6);
+  padding: 10px 15px; border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  z-index: 2;
+  animation: fadeIn 1s ease 1.2s both;
+}
+.hero-scroll-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  background: var(--accent);
+  padding: 0.9rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  animation: marquee 18s linear infinite;
+}
+.marquee-track span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bg);
+  padding: 0 2.5rem;
+}
+.marquee-dot { opacity: 0.4; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ABOUT */
+.about {
+  padding: 8rem 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image-actual {
+  width: 85%;
+  margin: 0 auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.about-accent-box {
+  position: absolute;
+  bottom: -1.5rem; right: 0rem;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.about-accent-box strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.section-tag {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.section-tag-line { width: 30px; height: 1px; background: var(--accent); }
+.section-tag-text {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+h2 em { font-style: italic; color: var(--accent); }
+
+.about-body {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+.about-body p + p { margin-top: 1rem; }
+.about-body strong { color: var(--text); font-weight: 500; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+.skill-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.skill-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* SERVICES */
+.services {
+  padding: 8rem 3.5rem;
+  background: var(--surface);
+}
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  align-items: end;
+}
+.services-desc {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  align-self: end;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.service-card {
+  background: var(--surface);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card:hover { background: var(--surface2); }
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px; width: 0;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+.service-card:hover::after { width: 100%; }
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* WORK */
+.work { padding: 8rem 3.5rem; }
+.work-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 4rem;
+}
+.work-header a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.work-header a:hover { opacity: 0.7; }
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.work-card {
+  position: relative; overflow: hidden;
+  border-radius: 6px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  transition: transform 0.35s ease, border-color 0.3s;
+  cursor: pointer;
+}
+.work-card:hover { transform: translateY(-6px); border-color: rgba(232,197,71,0.3); }
+.work-card:first-child { grid-row: span 2; }
+.work-thumb {
+  width: 100%; aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.work-card:first-child .work-thumb { aspect-ratio: 3/4; }
+.work-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.work-thumb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(232,197,71,0.05) 0%, transparent 60%);
+}
+.work-info {
+  padding: 1.5rem;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.work-cat {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.work-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.work-arrow {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.work-card:hover .work-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+/* --- MODALS & LAYOUT 1 (SOCIAL GRID) --- */
+.modal {
+  opacity: 0; visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px);
+  z-index: 10000; display: flex; justify-content: center; align-items: center;
+  padding: 2rem; transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.modal.show { opacity: 1; visibility: visible; }
+.modal-content {
+  background-color: #0a0a0a; border: 1px solid var(--border);
+  padding: 4rem; border-radius: 4px; max-width: 900px; width: 100%;
+  max-height: 90vh; overflow-y: auto; position: relative;
+  transform: translateY(30px); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal.show .modal-content { transform: translateY(0); }
+.close-btn {
+  position: absolute; top: 2rem; right: 2rem; font-size: 2.5rem; color: var(--muted); transition: all 0.3s ease; line-height: 1; cursor: pointer;
+}
+.close-btn:hover { color: var(--accent); transform: rotate(90deg); }
+.case-study-header h3 { font-size: 2.5rem; margin-bottom: 0.5rem; font-family: 'Cormorant Garamond', serif; }
+.case-study-header .role { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 3rem; display: block; }
+.case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.case-section h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.case-section p { font-size: 1rem; color: #ccc; font-weight: 300; margin-bottom: 1.5rem; }
+.tools-list { display: flex; gap: 10px; flex-wrap: wrap; }
+.tools-list span { padding: 5px 12px; font-size: 0.8rem; border: 1px solid var(--border); border-radius: 20px; color: var(--accent); }
+
+/* LAYOUT 1: PREMIUM SOCIAL FEED GRID */
+.social-feed-grid { 
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; 
+  margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 4rem; 
+}
+.social-post { 
+  background: rgba(255,255,255,0.01); border: 1px solid var(--border); 
+  border-radius: 12px; overflow: hidden; transition: transform 0.4s ease, border-color 0.4s ease; 
+}
+.social-post:hover { 
+  transform: translateY(-8px); border-color: rgba(232,197,71, 0.4); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6); 
+}
+.social-post-header { padding: 1.2rem; display: flex; align-items: center; justify-content: space-between; }
+.social-post-user { display: flex; align-items: center; gap: 12px; }
+.social-post-avatar { 
+  width: 28px; height: 28px; border-radius: 50%; background: var(--accent); 
+  display: flex; justify-content: center; align-items: center; 
+  color: var(--bg); font-weight: 700; font-size: 0.7rem; font-family: 'Syne', sans-serif;
+}
+.social-post-username { font-size: 0.8rem; font-weight: 600; color: var(--text); letter-spacing: 1px; }
+.social-post-image { 
+  width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; 
+  border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);
+  filter: brightness(0.95); transition: filter 0.4s ease;
+}
+.social-post:hover .social-post-image { filter: brightness(1.05); }
+.social-post-footer { padding: 1.2rem; display: flex; gap: 15px; }
+.social-post-icon { 
+  width: 22px; height: 22px; fill: none; stroke: var(--muted); stroke-width: 1.5; 
+  transition: stroke 0.3s ease, transform 0.3s ease; 
+}
+.social-post:hover .social-post-icon { stroke: var(--accent); transform: scale(1.1); }
+
+/* CONTACT */
+.contact {
+  padding: 8rem 3.5rem;
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.contact-left h2 { margin-bottom: 1rem; }
+.contact-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.contact-detail {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.contact-detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 80px;
+  flex-shrink: 0;
+}
+.contact-detail a, .contact-detail span {
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-detail a:hover { color: var(--accent); }
+
+/* FORM */
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+input, textarea, select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.85rem 1rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(136,133,128,0.5);
+}
+textarea { resize: vertical; min-height: 130px; }
+select { color: var(--muted); }
+select option { background: var(--bg); }
+.form-submit {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  align-self: flex-start;
+}
+.form-submit:hover { transform: translateY(-2px); background: #f0d060; }
+.form-success {
+  display: none;
+  background: rgba(232,197,71,0.08);
+  border: 1px solid rgba(232,197,71,0.3);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 3.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+.footer-logo span { color: var(--accent); }
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ANIMATIONS */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1.25rem 1.5rem; }
+  .hero { padding: 0 1.5rem 4rem; }
+  .hero-gallery { width: 100%; opacity: 0.25; }
+  .hero-number { font-size: 10rem; right: 1rem; }
+  .hero-meta { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .about, .contact { padding: 5rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+  .about-image-actual { width: 100%; } 
+  .services { padding: 5rem 1.5rem; }
+  .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .work { padding: 5rem 1.5rem; }
+  .work-grid { grid-template-columns: 1fr; }
+  .work-card:first-child { grid-row: span 1; }
+  .work-card:first-child .work-thumb { aspect-ratio: 4/3; }
+  .social-feed-grid { grid-template-columns: repeat(2, 1fr); }
+  footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+  .cursor, .cursor-follower { display: none; }
+  body { cursor: auto; }
+  .form-row { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .social-feed-grid { grid-template-columns: 1fr; }
+  .case-study-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -44,33 +775,643 @@ h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 9vw, 9rem)
 <nav>
   <a href="#" class="nav-logo">TD<span>.</span></a>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
 </nav>
 
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  
+  <div class="hero-gallery">
+    <div class="hero-gallery-col">
+      <img src="scroll-1.webp" alt="My Design">
+      <img src="scroll-2.webp" alt="My Design">
+      <img src="scroll-3.webp" alt="My Design">
+      <img src="scroll-4.webp" alt="My Design">
+      <img src="scroll-1.webp" alt="My Design">
+      <img src="scroll-2.webp" alt="My Design">
+      <img src="scroll-3.webp" alt="My Design">
+      <img src="scroll-4.webp" alt="My Design">
+    </div>
+    <div class="hero-gallery-col reverse">
+      <img src="scroll-5.webp" alt="My Design">
+      <img src="scroll-6.webp" alt="My Design">
+      <img src="scroll-7.webp" alt="My Design">
+      <img src="scroll-5.webp" alt="My Design">
+      <img src="scroll-6.webp" alt="My Design">
+      <img src="scroll-7.webp" alt="My Design">
+      <img src="scroll-5.webp" alt="My Design">
+      <img src="scroll-6.webp" alt="My Design">
+    </div>
+  </div>
+
+  <div class="hero-number">TD</div>
+
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span class="hero-eyebrow-text">Available for freelance projects — 2026</span>
+  </div>
+
   <h1>
     <span class="name-first">Tathagata</span>
     <span class="name-last">Das</span>
   </h1>
+
+  <div class="hero-meta">
+    <p class="hero-desc">
+      Graphic designer & visual identity specialist. I turn brands into experiences that people remember — and businesses into stories worth telling.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num"><span class="counter" data-target="5">0</span>+</div>
+        <div class="hero-stat-label">Years experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="counter" data-target="40">0</span>+</div>
+        <div class="hero-stat-label">Projects delivered</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span class="counter" data-target="15">0</span>+</div>
+        <div class="hero-stat-label">Agency clients</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 </section>
 
-<section class="work-grid" id="work">
-  <div class="work-card">Project 1</div>
-  <div class="work-card">Project 2</div>
-  <div class="work-card">Project 3</div>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Brand Identity</span><span class="marquee-dot">✦</span>
+    <span>Visual Design</span><span class="marquee-dot">✦</span>
+    <span>Typography</span><span class="marquee-dot">✦</span>
+    <span>Print & Packaging</span><span class="marquee-dot">✦</span>
+    <span>Digital Marketing Design</span><span class="marquee-dot">✦</span>
+    <span>Logo Design</span><span class="marquee-dot">✦</span>
+    <span>Art Direction</span><span class="marquee-dot">✦</span>
+    <span>Brand Strategy</span><span class="marquee-dot">✦</span>
+    <span>Brand Identity</span><span class="marquee-dot">✦</span>
+    <span>Visual Design</span><span class="marquee-dot">✦</span>
+    <span>Typography</span><span class="marquee-dot">✦</span>
+    <span>Print & Packaging</span><span class="marquee-dot">✦</span>
+    <span>Digital Marketing Design</span><span class="marquee-dot">✦</span>
+    <span>Logo Design</span><span class="marquee-dot">✦</span>
+    <span>Art Direction</span><span class="marquee-dot">✦</span>
+    <span>Brand Strategy</span><span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-image-wrap reveal">
+    <img src="my-photo.png" alt="Tathagata Das" class="about-image-actual">
+    
+    <div class="about-accent-box">
+      <strong>5+</strong>
+      Years of<br>Creative Excellence
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="section-tag">
+      <div class="section-tag-line"></div>
+      <span class="section-tag-text">About me</span>
+    </div>
+    <h2>Designing <em>impact</em>,<br>not just visuals.</h2>
+    <div class="about-body">
+      <p>I'm Tathagata Das — a graphic designer with <strong>over 5 years of hands-on experience</strong> working alongside some of India's most ambitious digital marketing agencies.</p>
+      <p>I specialize in building brand identities that don't just look good — they work hard. Every curve, colour, and composition I create is driven by strategy, refined by craft, and built to make your audience stop scrolling.</p>
+      <p>Having collaborated with <strong>agencies across digital, print, and brand strategy</strong>, I understand what it takes to deliver design that performs — on deadlines, on brief, and beyond expectations.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item"><span class="skill-dot"></span>Brand Identity & Logo Design</div>
+      <div class="skill-item"><span class="skill-dot"></span>Adobe Illustrator & Photoshop</div>
+      <div class="skill-item"><span class="skill-dot"></span>Typography & Layout</div>
+      <div class="skill-item"><span class="skill-dot"></span>InDesign & Print Design</div>
+      <div class="skill-item"><span class="skill-dot"></span>Packaging Design</div>
+      <div class="skill-item"><span class="skill-dot"></span>Figma & UI Design</div>
+      <div class="skill-item"><span class="skill-dot"></span>Social Media Creatives</div>
+      <div class="skill-item"><span class="skill-dot"></span>Art Direction</div>
+    </div>
+  </div>
 </section>
+
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span class="section-tag-text">What I do</span>
+      </div>
+      <h2>Services built for<br><em>bold brands.</em></h2>
+    </div>
+    <p class="services-desc">From first sketch to final file — I offer end-to-end design services that give your brand the visual presence it deserves.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">Brand Identity Design</div>
+      <p class="service-desc">Logo systems, brand guidelines, colour palettes and typography that define who you are and make you instantly recognisable.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">Print & Packaging</div>
+      <p class="service-desc">Brochures, packaging, business cards, posters and all collateral — designed to make a lasting impression in the physical world.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Digital Marketing Design</div>
+      <p class="service-desc">Social media creatives, ad banners, email templates and digital assets crafted to stop the scroll and drive real results.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-title">Art Direction</div>
+      <p class="service-desc">Visual strategy and creative direction for campaigns, shoots and brand launches — ensuring every touchpoint speaks the same visual language.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-title">UI & Web Design</div>
+      <p class="service-desc">Clean, intuitive interfaces and landing pages that balance stunning aesthetics with seamless user experience.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-title">Typography & Editorial</div>
+      <p class="service-desc">Magazine layouts, annual reports and editorial design — where every word finds its perfect visual form.</p>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="work-header reveal">
+    <div>
+      <div class="section-tag">
+        <div class="section-tag-line"></div>
+        <span class="section-tag-text">Portfolio</span>
+      </div>
+      <h2>Selected <em>work.</em></h2>
+    </div>
+    <a href="#contact">All projects →</a>
+  </div>
+  <div class="work-grid reveal">
+    
+    <div class="work-card" onclick="openModal('modal1')">
+      <div class="work-thumb">
+        <img src="MGE_1.webp" alt="MG Eyewear Premium Campaign">
+        <div class="work-thumb-overlay"></div>
+      </div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Social Media Campaign</div>
+          <div class="work-title">MG Eyewear Premium</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+    
+    <div class="work-card" onclick="openModal('modal2')">
+      <div class="work-thumb">Print<div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Print Design</div>
+          <div class="work-title">Project Two</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+    
+    <div class="work-card" onclick="openModal('modal3')">
+      <div class="work-thumb">Digital<div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Digital</div>
+          <div class="work-title">Project Three</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+        
+        <div class="case-study-header">
+            <h3 class="serif">MG Eyewear: International Luxury</h3>
+            <span class="role">Visual Designer & Art Director — <a href="https://morrisgarageseyewear.com" target="_blank" style="color:var(--accent); text-decoration:none;">morrisgarageseyewear.com</a></span>
+        </div>
+        
+        <div class="case-study-grid">
+            <div>
+                <div class="case-section">
+                    <h4>The Challenge</h4>
+                    <p>MG Eyewear needed a complete visual overhaul on their social channels. The challenge was to create high-end, premium posts that seamlessly matched the aesthetic standards of top-tier international luxury brands.</p>
+                </div>
+                <div class="case-section">
+                    <h4>The Approach</h4>
+                    <p>I abandoned generic product templates and focused on cinematic lighting, sharp typography, and minimalist compositions. By treating each social media post like a page in a high-fashion editorial magazine, we created a cohesive, highly desirable feed.</p>
+                </div>
+            </div>
+            <div>
+                <div class="case-section">
+                    <h4>The Impact</h4>
+                    <p>The new aesthetic established immediate visual trust, positioning MG Eyewear alongside global competitors and significantly increasing engagement from high-intent demographics.</p>
+                </div>
+                <div class="case-section">
+                    <h4>Tools Used</h4>
+                    <div class="tools-list">
+                        <span>Photoshop</span>
+                        <span>Social Strategy</span>
+                        <span>Layout Design</span>
+                        <span>Retouching</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-feed-grid">
+            
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_1.webp" alt="MG Eyewear Post 1" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_2.webp" alt="MG Eyewear Post 2" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_3.webp" alt="MG Eyewear Post 3" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_4.webp" alt="MG Eyewear Post 4" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_5.webp" alt="MG Eyewear Post 5" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_6.webp" alt="MG Eyewear Post 6" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_7.webp" alt="MG Eyewear Post 7" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_8.webp" alt="MG Eyewear Post 8" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_9.webp" alt="MG Eyewear Post 9" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_10.webp" alt="MG Eyewear Post 10" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_11.webp" alt="MG Eyewear Post 11" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </div>
+                <img src="MGE_12.webp" alt="MG Eyewear Post 12" class="social-post-image" loading="lazy">
+                <div class="social-post-footer">
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <svg class="social-post-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+        <div class="case-study-header">
+            <h3 class="serif">Project Two</h3>
+            <span class="role">Print Design</span>
+        </div>
+        <div class="case-study-grid">
+            <div>
+                <div class="case-section"><h4>The Challenge</h4><p>Details about the project go here.</p></div>
+                <div class="case-section"><h4>The Approach</h4><p>Details about the approach go here.</p></div>
+            </div>
+            <div>
+                <div class="case-section"><h4>The Impact</h4><p>Details about the impact go here.</p></div>
+                <div class="case-section">
+                    <h4>Tools Used</h4>
+                    <div class="tools-list"><span>Illustrator</span><span>InDesign</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+        <div class="case-study-header">
+            <h3 class="serif">Project Three</h3>
+            <span class="role">Digital Design</span>
+        </div>
+        <div class="case-study-grid">
+            <div>
+                <div class="case-section"><h4>The Challenge</h4><p>Details about the project go here.</p></div>
+                <div class="case-section"><h4>The Approach</h4><p>Details about the approach go here.</p></div>
+            </div>
+            <div>
+                <div class="case-section"><h4>The Impact</h4><p>Details about the impact go here.</p></div>
+                <div class="case-section">
+                    <h4>Tools Used</h4>
+                    <div class="tools-list"><span>Figma</span><span>Photoshop</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="contact-left reveal">
+    <div class="section-tag">
+      <div class="section-tag-line"></div>
+      <span class="section-tag-text">Get in touch</span>
+    </div>
+    <h2>Let's build something <em>great.</em></h2>
+    <p class="contact-sub">Have a project in mind? I'd love to hear about it. Whether you're a startup, agency, or established brand — let's talk design.</p>
+    <div class="contact-detail">
+      <span class="contact-detail-label">Email</span>
+      <a href="mailto:contact.tatha.das@gmail.com">contact.tatha.das@gmail.com</a>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-label">Based in</span>
+      <span>India — available worldwide</span>
+    </div>
+    <div class="contact-detail">
+      <span class="contact-detail-label">Status</span>
+      <span style="color: #6fcf97;">● Available for projects</span>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First name</label>
+          <input type="text" id="fname" placeholder="Rahul" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name</label>
+          <input type="text" id="lname" placeholder="Sharma" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="rahul@yourcompany.com" required>
+      </div>
+      <div class="form-group">
+        <label for="service">Service required</label>
+        <select id="service" required>
+          <option value="" disabled selected>Select a service...</option>
+          <option>Brand Identity Design</option>
+          <option>Print & Packaging</option>
+          <option>Digital Marketing Design</option>
+          <option>Art Direction</option>
+          <option>UI & Web Design</option>
+          <option>Typography & Editorial</option>
+          <option>Other / Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell me about your project</label>
+        <textarea id="message" placeholder="Describe your project, goals, timeline, and anything else that will help me understand what you need..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message →</button>
+      <div class="form-success" id="formSuccess">
+        ✓ Thanks! Your message has been sent. I'll get back to you within 24–48 hours.
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">TD<span>.</span></a>
+  <span class="footer-copy">© 2026 Tathagata Das. All rights reserved.</span>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="mailto:contact.tatha.das@gmail.com">Email</a></li>
+  </ul>
+</footer>
 
 <script>
-// Error-proof cursor script
+// Custom cursor
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');
+let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
 
 document.addEventListener('mousemove', e => {
-  if(!cursor || !follower) return;
-  cursor.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
-  follower.style.transform = `translate(${e.clientX - 18}px, ${e.clientY - 18}px)`;
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursor.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
 });
+
+function animateFollower() {
+  followerX += (mouseX - followerX - 18) * 0.20;
+  followerY += (mouseY - followerY - 18) * 0.20;
+  follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+  requestAnimationFrame(animateFollower);
+}
+animateFollower();
+
+document.querySelectorAll('a, button, .work-card, .service-card, .close-btn, .social-post').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform += ' scale(2.5)';
+    follower.style.width = '60px';
+    follower.style.height = '60px';
+  });
+  el.addEventListener('mouseleave', () => {
+    follower.style.width = '36px';
+    follower.style.height = '36px';
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// Animated counters
+function animateCounter(el) {
+  const target = +el.dataset.target;
+  const duration = 1800;
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.counter').forEach(animateCounter);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+const heroMeta = document.querySelector('.hero-meta');
+if (heroMeta) counterObserver.observe(heroMeta);
+
+// Form handling
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }, 1200);
+}
+
+// Modal Logic
+function openModal(modalId) {
+    document.getElementById(modalId).classList.add('show');
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
 </script>
 </body>
 </html>
