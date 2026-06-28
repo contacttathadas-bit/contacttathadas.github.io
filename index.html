@@ -1024,6 +1024,7 @@ footer {
   transition: background 0.2s, transform 0.2s;
 }
 .thankyou-close:hover { background: #f0d060; transform: translateY(-2px); }
+.thankyou-close { cursor: none; }
 
 /* FORM SUBMIT ROW */
 .form-submit-row {
@@ -2349,7 +2350,12 @@ footer {
   </div>
 
   <div class="reveal">
-    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+    <form class="contact-form" id="contactForm"
+          action="https://formspree.io/f/mojrwqov"
+          method="POST"
+          onsubmit="return validateForm(event)">
+      <!-- Redirect back to this page with #thankyou after Formspree processes -->
+      <input type="hidden" name="_next" id="formNextField" value="">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Rahul Sharma" required>
@@ -2419,7 +2425,7 @@ function animateFollower() {
 }
 animateFollower();
 
-document.querySelectorAll('a, button, .work-card, .service-card, .close-btn, .social-post').forEach(el => {
+document.querySelectorAll('a, button, .work-card, .service-card, .close-btn, .social-post, .thankyou-close, .modal-close-bar-btn').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cursor.style.transform += ' scale(2.5)';
     follower.style.width = '60px';
@@ -2466,60 +2472,46 @@ const counterObserver = new IntersectionObserver(entries => {
 const heroMeta = document.querySelector('.hero-meta');
 if (heroMeta) counterObserver.observe(heroMeta);
 
-// Form handling
-async function handleSubmit(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const name = form.querySelector('#name').value.trim();
-  const email = form.querySelector('#email').value.trim();
-  const message = form.querySelector('#message').value.trim();
+// Form handling — native POST so Formspree captcha works
+function validateForm(e) {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
   const warn = document.getElementById('formEmptyWarn');
-  const btn = document.getElementById('formSubmitBtn');
 
-  // Validate — all fields must be filled
   if (!name || !email || !message) {
     warn.style.display = 'inline';
-    return;
+    e.preventDefault();
+    return false;
   }
   warn.style.display = 'none';
 
-  // Send to Formspree using FormData (most reliable with Formspree)
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  try {
-    const data = new FormData();
-    data.append('name', name);
-    data.append('email', email);
-    data.append('message', message);
-
-    const res = await fetch('https://formspree.io/f/mojrwqov', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: data
-    });
-
-    if (res.ok) {
-      form.reset();
-      btn.textContent = 'Send message →';
-      btn.disabled = false;
-      document.getElementById('thankyouOverlay').classList.add('show');
-      document.body.style.overflow = 'hidden';
-    } else {
-      btn.textContent = 'Failed — try again';
-      btn.disabled = false;
-    }
-  } catch (err) {
-    btn.textContent = 'Failed — try again';
-    btn.disabled = false;
-  }
+  // Set _next to current URL + #thankyou so we detect the return
+  document.getElementById('formNextField').value = window.location.href.split('#')[0] + '#thankyou';
+  return true; // let the native POST + captcha proceed
 }
 
 function closeThankyou() {
   document.getElementById('thankyouOverlay').classList.remove('show');
   document.body.style.overflow = '';
+  // Clean up URL hash without reloading
+  history.replaceState(null, '', window.location.pathname + window.location.search);
 }
+
+// On page load: if redirected back with #thankyou, show the dialog
+(function() {
+  if (window.location.hash === '#thankyou') {
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('thankyouOverlay').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+    // Also handle if DOM already loaded
+    if (document.readyState !== 'loading') {
+      document.getElementById('thankyouOverlay').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+})();
 
 // Hide empty-warn as soon as user starts typing
 document.querySelectorAll('#name, #email, #message').forEach(el => {
