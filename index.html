@@ -953,7 +953,7 @@ footer {
 }
 .insta-grid img {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/5;
   object-fit: cover;
   display: block;
   transition: filter 0.3s ease;
@@ -965,10 +965,14 @@ footer {
   nav { padding: 1.25rem 1.5rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  .hero { padding: 0 1.5rem 4rem; }
-  .hero-gallery { width: 100%; opacity: 0.25; }
+  .hero { padding: 5rem 1.5rem 4rem; }
+  .hero-gallery { width: 100%; opacity: 0.15; }
   .hero-number { font-size: 10rem; right: 1rem; }
   .hero-meta { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero h1 { font-size: clamp(3.5rem, 16vw, 5.5rem); }
+  .hero-eyebrow { margin-bottom: 1rem; }
+  .hero-desc { font-size: 0.92rem; max-width: 100%; }
+  .hero-cta-row { margin-top: 1.5rem; }
   .about, .contact { padding: 5rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
   .about-image-actual { width: 100%; } 
   .services { padding: 5rem 1.5rem; }
@@ -1140,7 +1144,7 @@ footer {
     </div>
     <h2>Designing <em>impact</em>,<br>not just visuals.</h2>
     <div class="about-body">
-      <p>I'm Tathagata Das — a graphic designer with <strong>over 5 years of hands-on experience</strong> working alongside some of India's most ambitious digital marketing agencies.</p>
+      <p>I'm Tathagata Das — a graphic designer with <strong>2+ years of hands-on experience</strong> working alongside some of India's most ambitious digital marketing agencies.</p>
       <p>I specialize in building brand identities that don't just look good — they work hard. Every curve, colour, and composition I create is driven by strategy, refined by craft, and built to make your audience stop scrolling.</p>
       <p>Having collaborated with <strong>agencies across digital, print, and brand strategy</strong>, I understand what it takes to deliver design that performs — on deadlines, on brief, and beyond expectations.</p>
     </div>
@@ -1268,7 +1272,7 @@ footer {
     <!-- PROJECT 5: THE ROYAL CARATS -->
     <div class="work-card" onclick="openModal('modalTRC')">
       <div class="work-thumb">
-        <img loading="lazy" src="TRC-Grid1-P1.webp" alt="The Royal Carats">
+        <img loading="lazy" src="TRC-thumbnail.webp" alt="The Royal Carats">
         <div class="work-thumb-overlay"></div>
       </div>
       <div class="work-info">
