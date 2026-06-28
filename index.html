@@ -835,6 +835,39 @@ footer {
   font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
 }
 
+
+/* BRAND GUIDELINE SCROLLABLE */
+.brand-guideline-wrap {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+.brand-guideline-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.brand-guideline-scroll {
+    width: 100%;
+    max-height: 75vh;
+    overflow-y: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--surface2);
+}
+.brand-guideline-scroll::-webkit-scrollbar { width: 6px; }
+.brand-guideline-scroll::-webkit-scrollbar-track { background: var(--surface2); }
+.brand-guideline-scroll::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+.brand-guideline-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }
@@ -1023,9 +1056,7 @@ footer {
       <div class="skill-item"><span class="skill-dot"></span>Brand Identity & Logo Design</div>
       <div class="skill-item"><span class="skill-dot"></span>Adobe Illustrator & Photoshop</div>
       <div class="skill-item"><span class="skill-dot"></span>Typography & Layout</div>
-      <div class="skill-item"><span class="skill-dot"></span>InDesign & Print Design</div>
       <div class="skill-item"><span class="skill-dot"></span>Packaging Design</div>
-      <div class="skill-item"><span class="skill-dot"></span>Figma & UI Design</div>
       <div class="skill-item"><span class="skill-dot"></span>Social Media Creatives</div>
       <div class="skill-item"><span class="skill-dot"></span>Art Direction</div>
     </div>
@@ -1097,25 +1128,31 @@ footer {
       </div>
     </div>
 
-    <!-- PROJECT 2: Placeholder -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+    <!-- PROJECT 2: LOOKZUP -->
+    <div class="work-card" onclick="openModal('modal5')">
+      <div class="work-thumb">
+        <img src="Lookzup-thumbnail.webp" alt="Lookzup">
+        <div class="work-thumb-overlay"></div>
+      </div>
       <div class="work-info">
         <div>
-          <div class="work-cat">Coming Soon</div>
-          <div class="work-title">Project Two</div>
+          <div class="work-cat">Social Media</div>
+          <div class="work-title">Lookzup</div>
         </div>
         <div class="work-arrow">→</div>
       </div>
     </div>
 
-    <!-- PROJECT 3: Placeholder -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+    <!-- PROJECT 3: FUTURE CHAPTERS -->
+    <div class="work-card" onclick="openModal('modalFC')">
+      <div class="work-thumb">
+        <img src="FC-thumbnail.webp" alt="Future Chapters">
+        <div class="work-thumb-overlay"></div>
+      </div>
       <div class="work-info">
         <div>
-          <div class="work-cat">Coming Soon</div>
-          <div class="work-title">Project Three</div>
+          <div class="work-cat">Brand Identity</div>
+          <div class="work-title">Future Chapters</div>
         </div>
         <div class="work-arrow">→</div>
       </div>
@@ -1136,22 +1173,7 @@ footer {
       </div>
     </div>
 
-    <!-- PROJECT 5: LOOKZUP -->
-    <div class="work-card" onclick="openModal('modal5')">
-      <div class="work-thumb">
-        <img src="Lookzup-thumbnail.webp" alt="Lookzup">
-        <div class="work-thumb-overlay"></div>
-      </div>
-      <div class="work-info">
-        <div>
-          <div class="work-cat">Social Media</div>
-          <div class="work-title">Lookzup</div>
-        </div>
-        <div class="work-arrow">→</div>
-      </div>
-    </div>
-
-    <!-- PROJECT 6: VELVET VOGUE -->
+    <!-- PROJECT 5: VELVET VOGUE -->
     <div class="work-card" onclick="openModal('modal6')">
       <div class="work-thumb">
         <img src="VV-thumbnail.webp" alt="Velvet Vogue">
@@ -1165,10 +1187,14 @@ footer {
         <div class="work-arrow">→</div>
       </div>
     </div>
+
+    <!-- PROJECT 6: Dummy placeholder -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
       <div class="work-info">
         <div>
           <div class="work-cat">Coming Soon</div>
-          <div class="work-title">Project Seven</div>
+          <div class="work-title">Project Six</div>
         </div>
         <div class="work-arrow">→</div>
       </div>
@@ -1408,6 +1434,52 @@ footer {
     </div>
 </div>
 
+
+
+<!-- Modal FC: Future Chapters -->
+<div id="modalFC" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modalFC')">&times;</span>
+        <div class="case-study-header">
+            <h3 class="serif">Future Chapters</h3>
+            <span class="role">Visual Designer — Brand Identity</span>
+        </div>
+        <div class="case-study-grid">
+            <div>
+                <div class="case-section">
+                    <h4>The Challenge</h4>
+                    <p>Future Chapters is a financial advisory firm dedicated to helping teachers achieve financial freedom. The challenge was to craft a brand identity that felt both trustworthy and aspirational — professional enough for finance, warm enough for educators.</p>
+                </div>
+                <div class="case-section">
+                    <h4>The Approach</h4>
+                    <p>A clean, structured visual system with purposeful typography and a calm colour palette that communicates stability and growth. Every element of the brand — from logo to guidelines — was designed to inspire confidence in a community that invests in others for a living.</p>
+                </div>
+            </div>
+            <div>
+                <div class="case-section">
+                    <h4>The Impact</h4>
+                    <p>A cohesive, professional brand identity that positions Future Chapters as the trusted partner for teachers navigating their financial future — credible, human, and built to last.</p>
+                </div>
+                <div class="case-section">
+                    <h4>Tools Used</h4>
+                    <div class="tools-list">
+                        <span>Illustrator</span>
+                        <span>Photoshop</span>
+                        <span>Brand Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scrollable Brand Guideline Image -->
+        <div class="brand-guideline-wrap">
+            <p class="brand-guideline-label">Brand Guidelines</p>
+            <div class="brand-guideline-scroll">
+                <img src="FC-guidelines.webp" alt="Future Chapters Brand Guidelines" class="brand-guideline-img">
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal 4: Elite Footwear -->
 <div id="modal4" class="modal">
