@@ -556,9 +556,8 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 .modal.show .modal-content { transform: translateY(0); }
 .close-btn {
-  position: absolute; top: 2rem; right: 2rem; font-size: 2.5rem; color: var(--muted); transition: all 0.3s ease; line-height: 1; cursor: pointer;
+  display: none; /* replaced by sticky close button */
 }
-.close-btn:hover { color: var(--accent); transform: rotate(90deg); }
 .case-study-header h3 { font-size: 2.5rem; margin-bottom: 0.5rem; font-family: 'Cormorant Garamond', serif; }
 .case-study-header .role { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 3rem; display: block; }
 .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -878,19 +877,19 @@ footer {
   z-index: 10;
   display: flex;
   justify-content: flex-end;
-  padding: 0 0 1.5rem 0;
-  background: linear-gradient(to bottom, #0a0a0a 80%, transparent);
-  margin: -3rem -3rem 0 -3rem;
-  padding: 1rem 2rem;
+  /* no background, no margin override — pure transparent bar */
+  pointer-events: none;
+  margin-bottom: -2.5rem;
 }
 .modal-close-bar-btn {
+  pointer-events: all;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   background: var(--accent);
   color: var(--bg);
   border: none;
-  padding: 0.6rem 1.4rem;
+  padding: 0.55rem 1.25rem;
   border-radius: 3rem;
   font-family: 'Syne', sans-serif;
   font-size: 0.78rem;
@@ -899,7 +898,7 @@ footer {
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 12px rgba(232,197,71,0.35);
+  box-shadow: 0 2px 16px rgba(232,197,71,0.5);
 }
 .modal-close-bar-btn:hover {
   background: #f0d060;
@@ -908,6 +907,58 @@ footer {
 .modal-close-bar-btn svg {
   width: 14px; height: 14px;
 }
+
+
+/* INSTAGRAM SEAMLESS GRID */
+.insta-grid-section {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+.insta-grid-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.insta-grid-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.insta-grid-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.insta-grid-meta svg {
+  width: 14px; height: 14px; fill: var(--muted);
+}
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.insta-grid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+.insta-grid img:hover { filter: brightness(1.1); }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -1214,13 +1265,16 @@ footer {
       </div>
     </div>
 
-    <!-- PROJECT 5: Dummy placeholder -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+    <!-- PROJECT 5: THE ROYAL CARATS -->
+    <div class="work-card" onclick="openModal('modalTRC')">
+      <div class="work-thumb">
+        <img loading="lazy" src="TRC-Grid1-P1.webp" alt="The Royal Carats">
+        <div class="work-thumb-overlay"></div>
+      </div>
       <div class="work-info">
         <div>
-          <div class="work-cat">Coming Soon</div>
-          <div class="work-title">Project Five</div>
+          <div class="work-cat">Social Media</div>
+          <div class="work-title">The Royal Carats</div>
         </div>
         <div class="work-arrow">→</div>
       </div>
@@ -2105,6 +2159,89 @@ footer {
     </div>
 </div>
 
+
+<!-- Modal TRC: The Royal Carats -->
+<div id="modalTRC" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modalTRC')">&times;</span>
+        <div class="modal-close-bar"><button class="modal-close-bar-btn" onclick="closeModal('modalTRC')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Close</button></div>
+        <div class="case-study-header">
+            <h3 class="serif">The Royal Carats</h3>
+            <span class="role">Visual Designer &amp; Social Media — <a href="https://theroyalcarats.com" target="_blank" style="color:var(--accent); text-decoration:none;">theroyalcarats.com</a></span>
+        </div>
+        <div class="case-study-grid">
+            <div>
+                <div class="case-section">
+                    <h4>The Challenge</h4>
+                    <p>Build a cohesive and aspirational social media identity for a luxury jewellery brand that communicates elegance, craftsmanship, and exclusivity.</p>
+                </div>
+                <div class="case-section">
+                    <h4>The Approach</h4>
+                    <p>A refined visual language built around rich tones, editorial compositions, and grid-driven storytelling — each row of the feed crafted as a visual statement.</p>
+                </div>
+            </div>
+            <div>
+                <div class="case-section">
+                    <h4>The Impact</h4>
+                    <p>A feed that feels curated and intentional — every post contributing to a larger visual narrative that commands attention and builds brand desire.</p>
+                </div>
+                <div class="case-section">
+                    <h4>Tools Used</h4>
+                    <div class="tools-list">
+                        <span>Photoshop</span>
+                        <span>Illustrator</span>
+                        <span>Social Strategy</span>
+                        <span>Art Direction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INSTAGRAM GRID 1 -->
+        <div class="insta-grid-section">
+            <div class="insta-grid-label">Instagram Grid — Campaign I</div>
+            <div class="insta-grid-meta">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                theroyalcarats &nbsp;·&nbsp; 12 posts
+            </div>
+            <div class="insta-grid">
+                <img loading="lazy" src="TRC-Grid1-P12.webp" alt="The Royal Carats Grid 1 Post 12">
+                <img loading="lazy" src="TRC-Grid1-P11.webp" alt="The Royal Carats Grid 1 Post 11">
+                <img loading="lazy" src="TRC-Grid1-P10.webp" alt="The Royal Carats Grid 1 Post 10">
+                <img loading="lazy" src="TRC-Grid1-P9.webp" alt="The Royal Carats Grid 1 Post 9">
+                <img loading="lazy" src="TRC-Grid1-P8.webp" alt="The Royal Carats Grid 1 Post 8">
+                <img loading="lazy" src="TRC-Grid1-P7.webp" alt="The Royal Carats Grid 1 Post 7">
+                <img loading="lazy" src="TRC-Grid1-P6.webp" alt="The Royal Carats Grid 1 Post 6">
+                <img loading="lazy" src="TRC-Grid1-P5.webp" alt="The Royal Carats Grid 1 Post 5">
+                <img loading="lazy" src="TRC-Grid1-P4.webp" alt="The Royal Carats Grid 1 Post 4">
+                <img loading="lazy" src="TRC-Grid1-P3.webp" alt="The Royal Carats Grid 1 Post 3">
+                <img loading="lazy" src="TRC-Grid1-P2.webp" alt="The Royal Carats Grid 1 Post 2">
+                <img loading="lazy" src="TRC-Grid1-P1.webp" alt="The Royal Carats Grid 1 Post 1">
+            </div>
+        </div>
+
+        <!-- INSTAGRAM GRID 2 -->
+        <div class="insta-grid-section">
+            <div class="insta-grid-label">Instagram Grid — Campaign II</div>
+            <div class="insta-grid-meta">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                theroyalcarats &nbsp;·&nbsp; 9 posts
+            </div>
+            <div class="insta-grid">
+                <img loading="lazy" src="TRC-Grid2-P9.webp" alt="The Royal Carats Grid 2 Post 9">
+                <img loading="lazy" src="TRC-Grid2-P8.webp" alt="The Royal Carats Grid 2 Post 8">
+                <img loading="lazy" src="TRC-Grid2-P7.webp" alt="The Royal Carats Grid 2 Post 7">
+                <img loading="lazy" src="TRC-Grid2-P6.webp" alt="The Royal Carats Grid 2 Post 6">
+                <img loading="lazy" src="TRC-Grid2-P5.webp" alt="The Royal Carats Grid 2 Post 5">
+                <img loading="lazy" src="TRC-Grid2-P4.webp" alt="The Royal Carats Grid 2 Post 4">
+                <img loading="lazy" src="TRC-Grid2-P3.webp" alt="The Royal Carats Grid 2 Post 3">
+                <img loading="lazy" src="TRC-Grid2-P2.webp" alt="The Royal Carats Grid 2 Post 2">
+                <img loading="lazy" src="TRC-Grid2-P1.webp" alt="The Royal Carats Grid 2 Post 1">
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-left reveal">
@@ -2144,19 +2281,7 @@ footer {
         <label for="email">Email address</label>
         <input type="email" id="email" placeholder="rahul@yourcompany.com" required>
       </div>
-      <div class="form-group">
-        <label for="service">Service required</label>
-        <select id="service" required>
-          <option value="" disabled selected>Select a service...</option>
-          <option>Brand Identity Design</option>
-          <option>Print & Packaging</option>
-          <option>Digital Marketing Design</option>
-          <option>Art Direction</option>
-          <option>UI & Web Design</option>
-          <option>Typography & Editorial</option>
-          <option>Other / Not sure yet</option>
-        </select>
-      </div>
+
       <div class="form-group">
         <label for="message">Tell me about your project</label>
         <textarea id="message" placeholder="Describe your project, goals, timeline, and anything else that will help me understand what you need..." required></textarea>
