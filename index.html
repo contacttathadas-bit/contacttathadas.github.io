@@ -960,6 +960,85 @@ footer {
 }
 .insta-grid img:hover { filter: brightness(1.1); }
 
+
+/* THANK YOU DIALOG */
+.thankyou-overlay {
+  position: fixed; inset: 0; z-index: 99999;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.thankyou-overlay.show { opacity: 1; visibility: visible; }
+.thankyou-box {
+  background: #111111;
+  border: 1px solid rgba(232,197,71,0.25);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  transform: translateY(24px);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 0 60px rgba(232,197,71,0.08);
+}
+.thankyou-overlay.show .thankyou-box { transform: translateY(0); }
+.thankyou-icon {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(232,197,71,0.12);
+  border: 1px solid rgba(232,197,71,0.3);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+.thankyou-icon svg {
+  width: 28px; height: 28px;
+  stroke: var(--accent);
+}
+.thankyou-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+.thankyou-body {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+.thankyou-close {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 3rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.thankyou-close:hover { background: #f0d060; transform: translateY(-2px); }
+
+/* FORM SUBMIT ROW */
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.form-empty-warn {
+  font-size: 0.82rem;
+  color: var(--accent2);
+  display: none;
+  font-weight: 500;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }
@@ -2270,33 +2349,40 @@ footer {
   </div>
 
   <div class="reveal">
-    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="fname">First name</label>
-          <input type="text" id="fname" placeholder="Rahul" required>
-        </div>
-        <div class="form-group">
-          <label for="lname">Last name</label>
-          <input type="text" id="lname" placeholder="Sharma" required>
-        </div>
+    <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Rahul Sharma" required>
       </div>
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" id="email" placeholder="rahul@yourcompany.com" required>
+        <input type="email" id="email" name="email" placeholder="rahul@yourcompany.com" required>
       </div>
-
       <div class="form-group">
         <label for="message">Tell me about your project</label>
-        <textarea id="message" placeholder="Describe your project, goals, timeline, and anything else that will help me understand what you need..." required></textarea>
+        <textarea id="message" name="message" placeholder="Describe your project, goals, timeline, and anything else that will help me understand what you need..." required></textarea>
       </div>
-      <button type="submit" class="form-submit">Send message →</button>
-      <div class="form-success" id="formSuccess">
-        ✓ Thanks! Your message has been sent. I'll get back to you within 24–48 hours.
+      <div class="form-submit-row">
+        <button type="submit" class="form-submit" id="formSubmitBtn">Send message →</button>
+        <span class="form-empty-warn" id="formEmptyWarn">Please fill in all fields first.</span>
       </div>
     </form>
   </div>
 </section>
+
+<!-- THANK YOU DIALOG -->
+<div class="thankyou-overlay" id="thankyouOverlay">
+  <div class="thankyou-box">
+    <div class="thankyou-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3 class="thankyou-title">Message Sent!</h3>
+    <p class="thankyou-body">Thanks for reaching out. I'll get back to you within 24–48 hours.</p>
+    <button class="thankyou-close" onclick="closeThankyou()">Close</button>
+  </div>
+</div>
 
 <footer>
   <a href="#" class="footer-logo">TD<span>.</span></a>
@@ -2381,16 +2467,62 @@ const heroMeta = document.querySelector('.hero-meta');
 if (heroMeta) counterObserver.observe(heroMeta);
 
 // Form handling
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
+
+  const form = e.target;
+  const name = form.querySelector('#name').value.trim();
+  const email = form.querySelector('#email').value.trim();
+  const message = form.querySelector('#message').value.trim();
+  const warn = document.getElementById('formEmptyWarn');
+  const btn = document.getElementById('formSubmitBtn');
+
+  // Validate — all fields must be filled
+  if (!name || !email || !message) {
+    warn.style.display = 'inline';
+    return;
+  }
+  warn.style.display = 'none';
+
+  // Send to Formspree
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => {
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }, 1200);
+
+  try {
+    const res = await fetch('https://formspree.io/f/mojrwqov', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    if (res.ok) {
+      form.reset();
+      document.getElementById('thankyouOverlay').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    } else {
+      btn.textContent = 'Failed — try again';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    btn.textContent = 'Failed — try again';
+    btn.disabled = false;
+  }
+
+  btn.textContent = 'Send message →';
+  btn.disabled = false;
 }
+
+function closeThankyou() {
+  document.getElementById('thankyouOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Hide empty-warn as soon as user starts typing
+document.querySelectorAll('#name, #email, #message').forEach(el => {
+  el.addEventListener('input', () => {
+    document.getElementById('formEmptyWarn').style.display = 'none';
+  });
+});
 
 // Hamburger menu
 const hamburger = document.getElementById('hamburger');
