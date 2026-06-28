@@ -587,7 +587,7 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 .social-post-username { font-size: 0.8rem; font-weight: 600; color: var(--text); letter-spacing: 1px; }
 .social-post-image { 
-  width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; 
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; 
   border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);
   filter: brightness(0.95); transition: filter 0.4s ease;
 }
@@ -801,6 +801,40 @@ footer {
   50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
 }
 
+
+/* HERO PORTFOLIO BUTTON */
+.hero-cta-row {
+  display: flex; align-items: center; gap: 1.25rem;
+  margin-top: 2rem; margin-bottom: 0.5rem;
+  position: relative; z-index: 2;
+  animation: slideUp 0.8s ease 0.55s both;
+  flex-wrap: wrap;
+}
+.hero-portfolio-btn {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  background: var(--accent); color: var(--bg);
+  text-decoration: none; padding: 0.85rem 1rem 0.85rem 1.4rem;
+  border-radius: 3rem; font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 0 30px rgba(232,197,71,0.4), 0 4px 15px rgba(232,197,71,0.25);
+}
+.hero-portfolio-btn:hover {
+  background: #f0d060; transform: translateY(-3px);
+  box-shadow: 0 0 50px rgba(232,197,71,0.6), 0 8px 25px rgba(232,197,71,0.4);
+}
+.hero-portfolio-btn svg { flex-shrink: 0; }
+.hero-portfolio-btn-arrow {
+  width: 28px; height: 28px; background: var(--bg); color: var(--accent);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0; transition: transform 0.2s;
+}
+.hero-portfolio-btn:hover .hero-portfolio-btn-arrow { transform: translateY(3px); }
+.hero-portfolio-tagline {
+  font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }
@@ -908,6 +942,15 @@ footer {
     <span class="name-first">Tathagata</span>
     <span class="name-last">Das</span>
   </h1>
+
+  <div class="hero-cta-row">
+    <a href="#work" class="hero-portfolio-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Portfolio
+      <span class="hero-portfolio-btn-arrow">↓</span>
+    </a>
+    <span class="hero-portfolio-tagline">View my selected work</span>
+  </div>
 
   <div class="hero-meta">
     <p class="hero-desc">
@@ -1053,7 +1096,31 @@ footer {
         <div class="work-arrow">→</div>
       </div>
     </div>
-    
+
+    <!-- PROJECT 2: Placeholder -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Two</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: Placeholder -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Three</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
     <!-- PROJECT 4: ELITE FOOTWEAR -->
     <div class="work-card" onclick="openModal('modal4')">
       <div class="work-thumb">
@@ -1068,7 +1135,7 @@ footer {
         <div class="work-arrow">→</div>
       </div>
     </div>
-    
+
     <!-- PROJECT 5: LOOKZUP -->
     <div class="work-card" onclick="openModal('modal5')">
       <div class="work-thumb">
@@ -1098,34 +1165,6 @@ footer {
         <div class="work-arrow">→</div>
       </div>
     </div>
-
-    <!-- Placeholder Project 5 -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
-      <div class="work-info">
-        <div>
-          <div class="work-cat">Coming Soon</div>
-          <div class="work-title">Project Five</div>
-        </div>
-        <div class="work-arrow">→</div>
-      </div>
-    </div>
-
-    <!-- Placeholder Project 6 -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
-      <div class="work-info">
-        <div>
-          <div class="work-cat">Coming Soon</div>
-          <div class="work-title">Project Six</div>
-        </div>
-        <div class="work-arrow">→</div>
-      </div>
-    </div>
-
-    <!-- Placeholder Project 7 -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
       <div class="work-info">
         <div>
           <div class="work-cat">Coming Soon</div>
@@ -1134,10 +1173,6 @@ footer {
         <div class="work-arrow">→</div>
       </div>
     </div>
-
-    <!-- Placeholder Project 8 -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
       <div class="work-info">
         <div>
           <div class="work-cat">Coming Soon</div>
@@ -1146,10 +1181,6 @@ footer {
         <div class="work-arrow">→</div>
       </div>
     </div>
-
-    <!-- Placeholder Project 9 -->
-    <div class="work-card">
-      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
       <div class="work-info">
         <div>
           <div class="work-cat">Coming Soon</div>
