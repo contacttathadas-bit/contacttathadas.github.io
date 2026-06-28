@@ -12,7 +12,10 @@
 <!-- FAVICON RESTORED HERE -->
 <link rel="icon" type="image/png" href="favicon.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,13 +40,12 @@ body {
   cursor: none;
 }
 
-/* CUSTOM CURSOR */
 .cursor {
   width: 10px; height: 10px;
   background: var(--accent);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9999;
+  pointer-events: none; z-index: 99999;
   mix-blend-mode: difference;
 }
 .cursor-follower {
@@ -51,7 +53,7 @@ body {
   border: 1px solid var(--accent);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9998;
+  pointer-events: none; z-index: 99998;
   transition: width 0.2s ease, height 0.2s ease;
   mix-blend-mode: difference;
 }
@@ -479,7 +481,7 @@ h2 em { font-style: italic; color: var(--accent); }
 .work-header a:hover { opacity: 0.7; }
 .work-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 .work-card {
@@ -491,14 +493,12 @@ h2 em { font-style: italic; color: var(--accent); }
   cursor: pointer;
 }
 .work-card:hover { transform: translateY(-6px); border-color: rgba(232,197,71,0.3); }
-.work-card:first-child { grid-row: span 2; }
 .work-thumb {
-  width: 100%; aspect-ratio: 4/3;
+  width: 100%; aspect-ratio: 16/9;
   display: flex; align-items: center; justify-content: center;
   position: relative;
   overflow: hidden;
 }
-.work-card:first-child .work-thumb { aspect-ratio: 3/4; }
 .work-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .work-thumb-overlay {
   position: absolute; inset: 0;
@@ -541,8 +541,9 @@ h2 em { font-style: italic; color: var(--accent); }
 .modal {
   opacity: 0; visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px);
-  z-index: 10000; display: flex; justify-content: center; align-items: center;
+  z-index: 9000; display: flex; justify-content: center; align-items: center;
   padding: 2rem; transition: opacity 0.4s ease, visibility 0.4s ease;
+  cursor: default;
 }
 .modal.show { opacity: 1; visibility: visible; }
 .modal-content {
@@ -566,7 +567,7 @@ h2 em { font-style: italic; color: var(--accent); }
 
 /* LAYOUT 1: PREMIUM SOCIAL FEED GRID */
 .social-feed-grid { 
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; 
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; 
   margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 4rem; 
 }
 .social-post { 
@@ -586,7 +587,7 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 .social-post-username { font-size: 0.8rem; font-weight: 600; color: var(--text); letter-spacing: 1px; }
 .social-post-image { 
-  width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; 
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; 
   border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);
   filter: brightness(0.95); transition: filter 0.4s ease;
 }
@@ -753,8 +754,6 @@ footer {
   .services-grid { grid-template-columns: 1fr; }
   .work { padding: 5rem 1.5rem; }
   .work-grid { grid-template-columns: 1fr; }
-  .work-card:first-child { grid-row: span 1; }
-  .work-card:first-child .work-thumb { aspect-ratio: 4/3; }
   .social-feed-grid { grid-template-columns: repeat(2, 1fr); }
   footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
   .cursor, .cursor-follower { display: none; }
@@ -790,28 +789,31 @@ footer {
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
   
-  <!-- HERO SCROLLING GALLERY WITH YOUR LOCAL IMAGES -->
+  <!-- HERO SCROLLING GALLERY -->
   <div class="hero-gallery">
-    <!-- First Column -->
+    <!-- First Column: scroll-1, scroll-2, scroll-3, scroll-4 (doubled for seamless loop) -->
     <div class="hero-gallery-col">
-      <!-- REPLACE THESE NAMES WITH YOUR ACTUAL FILE NAMES (e.g. image1.jpg) -->
-      <img src="gallery-1.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-2.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-3.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=400&auto=format&fit=crop';">
-      
-      <img src="gallery-1.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-2.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-3.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=400&auto=format&fit=crop';">
+      <img src="scroll-1.webp" alt="Design Work">
+      <img src="scroll-2.webp" alt="Design Work">
+      <img src="scroll-3.webp" alt="Design Work">
+      <img src="scroll-4.webp" alt="Design Work">
+      <!-- Duplicate for seamless loop -->
+      <img src="scroll-1.webp" alt="Design Work">
+      <img src="scroll-2.webp" alt="Design Work">
+      <img src="scroll-3.webp" alt="Design Work">
+      <img src="scroll-4.webp" alt="Design Work">
     </div>
-    <!-- Second Column (Reversed) -->
+    <!-- Second Column (Reversed): scroll-5, scroll-6, scroll-7 (doubled for seamless loop) -->
     <div class="hero-gallery-col reverse">
-      <img src="gallery-4.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-5.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1599643478514-4a420804cece?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-6.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop';">
-      
-      <img src="gallery-4.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-5.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1599643478514-4a420804cece?q=80&w=400&auto=format&fit=crop';">
-      <img src="gallery-6.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop';">
+      <img src="scroll-5.webp" alt="Design Work">
+      <img src="scroll-6.webp" alt="Design Work">
+      <img src="scroll-7.webp" alt="Design Work">
+      <img src="scroll-5.webp" alt="Design Work">
+      <!-- Duplicate for seamless loop -->
+      <img src="scroll-6.webp" alt="Design Work">
+      <img src="scroll-7.webp" alt="Design Work">
+      <img src="scroll-5.webp" alt="Design Work">
+      <img src="scroll-6.webp" alt="Design Work">
     </div>
   </div>
 
@@ -970,27 +972,27 @@ footer {
   </div>
   <div class="work-grid reveal">
     
-    <!-- PROJECT 1: MG EYEWEAR (Featured) -->
+    <!-- PROJECT 1: MG EYEWEAR -->
     <div class="work-card" onclick="openModal('modal1')">
       <div class="work-thumb">
-        <img src="MGE_1.webp" alt="MG Eyewear Premium Campaign" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop';">
+        <img src="MGE-thumbnail.webp" alt="MG Eyewear Campaign">
         <div class="work-thumb-overlay"></div>
       </div>
       <div class="work-info">
         <div>
           <div class="work-cat">Social Media Campaign</div>
-          <div class="work-title">MG Eyewear Premium</div>
+          <div class="work-title">MG Eyewear</div>
         </div>
         <div class="work-arrow">→</div>
       </div>
     </div>
     
     <!-- Placeholder Project 2 -->
-    <div class="work-card" onclick="openModal('modal2')">
-      <div class="work-thumb">Print<div class="work-thumb-overlay"></div></div>
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
       <div class="work-info">
         <div>
-          <div class="work-cat">Print Design</div>
+          <div class="work-cat">Coming Soon</div>
           <div class="work-title">Project Two</div>
         </div>
         <div class="work-arrow">→</div>
@@ -998,12 +1000,84 @@ footer {
     </div>
     
     <!-- Placeholder Project 3 -->
-    <div class="work-card" onclick="openModal('modal3')">
-      <div class="work-thumb">Digital<div class="work-thumb-overlay"></div></div>
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
       <div class="work-info">
         <div>
-          <div class="work-cat">Digital</div>
+          <div class="work-cat">Coming Soon</div>
           <div class="work-title">Project Three</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Placeholder Project 4 -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Four</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Placeholder Project 5 -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Five</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Placeholder Project 6 -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Six</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Placeholder Project 7 -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Seven</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Placeholder Project 8 -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Eight</div>
+        </div>
+        <div class="work-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- Placeholder Project 9 -->
+    <div class="work-card">
+      <div class="work-thumb"><div class="work-thumb-overlay"></div></div>
+      <div class="work-info">
+        <div>
+          <div class="work-cat">Coming Soon</div>
+          <div class="work-title">Project Nine</div>
         </div>
         <div class="work-arrow">→</div>
       </div>
@@ -1061,7 +1135,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_1.webp" alt="MG Eyewear Post 1" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-1.webp" alt="MG Eyewear Post 1" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1075,7 +1149,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_2.webp" alt="MG Eyewear Post 2" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-2.webp" alt="MG Eyewear Post 2" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1089,7 +1163,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_3.webp" alt="MG Eyewear Post 3" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-3.webp" alt="MG Eyewear Post 3" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1103,7 +1177,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_4.webp" alt="MG Eyewear Post 4" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-4.webp" alt="MG Eyewear Post 4" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1117,7 +1191,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_5.webp" alt="MG Eyewear Post 5" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-5.webp" alt="MG Eyewear Post 5" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1131,7 +1205,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_6.webp" alt="MG Eyewear Post 6" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-6.webp" alt="MG Eyewear Post 6" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1145,7 +1219,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_7.webp" alt="MG Eyewear Post 7" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-7.webp" alt="MG Eyewear Post 7" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1159,7 +1233,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_8.webp" alt="MG Eyewear Post 8" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-8.webp" alt="MG Eyewear Post 8" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1173,7 +1247,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_9.webp" alt="MG Eyewear Post 9" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-9.webp" alt="MG Eyewear Post 9" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1187,7 +1261,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_10.webp" alt="MG Eyewear Post 10" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-10.webp" alt="MG Eyewear Post 10" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1201,7 +1275,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_11.webp" alt="MG Eyewear Post 11" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-11.webp" alt="MG Eyewear Post 11" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1215,7 +1289,7 @@ footer {
                     <div class="social-post-user"><div class="social-post-avatar">MG</div><span class="social-post-username">mgeyewear</span></div>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--muted)"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
                 </div>
-                <img src="MGE_12.webp" alt="MG Eyewear Post 12" class="social-post-image" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop';">
+                <img src="MGE-12.webp" alt="MG Eyewear Post 12" class="social-post-image">
                 <div class="social-post-footer">
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     <svg class="social-post-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
