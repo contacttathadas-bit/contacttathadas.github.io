@@ -2484,19 +2484,26 @@ async function handleSubmit(e) {
   }
   warn.style.display = 'none';
 
-  // Send to Formspree
+  // Send to Formspree using FormData (most reliable with Formspree)
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
   try {
+    const data = new FormData();
+    data.append('name', name);
+    data.append('email', email);
+    data.append('message', message);
+
     const res = await fetch('https://formspree.io/f/mojrwqov', {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message })
+      headers: { 'Accept': 'application/json' },
+      body: data
     });
 
     if (res.ok) {
       form.reset();
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
       document.getElementById('thankyouOverlay').classList.add('show');
       document.body.style.overflow = 'hidden';
     } else {
@@ -2507,9 +2514,6 @@ async function handleSubmit(e) {
     btn.textContent = 'Failed — try again';
     btn.disabled = false;
   }
-
-  btn.textContent = 'Send message →';
-  btn.disabled = false;
 }
 
 function closeThankyou() {
