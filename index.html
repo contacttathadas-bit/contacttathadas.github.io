@@ -8,7 +8,11 @@
 <meta name="keywords" content="graphic designer, brand identity, visual design, logo design, Tathagata Das, India, digital marketing design">
 <meta property="og:title" content="Tathagata Das — Graphic Designer">
 <meta property="og:description" content="5+ years crafting bold identities and visual stories for brands that want to be remembered.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<!-- FAVICON RESTORED HERE -->
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -61,8 +65,10 @@ nav {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
+
+/* ITALIC NAME REMOVED - NOW MATCHES FOOTER LOGO */
 .nav-logo {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--text);
@@ -70,6 +76,7 @@ nav {
   letter-spacing: 0.01em;
 }
 .nav-logo span { color: var(--accent); }
+
 .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 .nav-links a {
   font-size: 0.75rem;
@@ -768,7 +775,8 @@ footer {
 <div class="cursor-follower" id="cursorFollower"></div>
 
 <nav>
-  <a href="#" class="nav-logo">tathagata das<span>.</span></a>
+  <!-- ITALIC NAME REMOVED, NOW READS TD. TO MATCH FOOTER -->
+  <a href="#" class="nav-logo">TD<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -782,25 +790,28 @@ footer {
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
   
-  <!-- HERO SCROLLING GALLERY -->
+  <!-- HERO SCROLLING GALLERY WITH YOUR LOCAL IMAGES -->
   <div class="hero-gallery">
     <!-- First Column -->
     <div class="hero-gallery-col">
-      <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
+      <!-- REPLACE THESE NAMES WITH YOUR ACTUAL FILE NAMES (e.g. image1.jpg) -->
+      <img src="gallery-1.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-2.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-3.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=400&auto=format&fit=crop';">
+      
+      <img src="gallery-1.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-2.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-3.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=400&auto=format&fit=crop';">
     </div>
     <!-- Second Column (Reversed) -->
     <div class="hero-gallery-col reverse">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1599643478514-4a420804cece?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1599643478514-4a420804cece?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
-      <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop" alt="Mock Design">
+      <img src="gallery-4.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-5.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1599643478514-4a420804cece?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-6.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop';">
+      
+      <img src="gallery-4.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-5.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1599643478514-4a420804cece?q=80&w=400&auto=format&fit=crop';">
+      <img src="gallery-6.jpg" alt="My Design" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400&auto=format&fit=crop';">
     </div>
   </div>
 
